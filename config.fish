@@ -12,7 +12,8 @@ alias oc "code ."
 
 set -x GOPATH1 $HOME/Development/go
 set -x GOPATH2 $HOME/Development/heptio/go
-set -gx GOPATH $GOPATH1:$GOPATH2
+#set -gx GOPATH $GOPATH1:$GOPATH2
+set -gx GOPATH $GOPATH1
 set -gx PATH $PATH $GOPATH1/bin
 set -gx PATH $PATH $GOPATH2/bin
 set -x SHELL /bin/bash
@@ -21,6 +22,11 @@ set -x KUBECONFIG (find ~/.kube -type f -name '*kubeconfig*' | tr '\n' ':' | sed
 source ~/.iterm2_shell_integration.fish
 # fish: Place this in ~/.config/fish/config.fish after the line
 # "source ~/.iterm2_shell_integration.fish".
+
+#function fish_prompt
+#    /usr/local/bin/powerline-go -error $status -shell bare
+#end
+
 function iterm2_print_user_vars
   if  [ (echo $KUBECONFIG | grep config) ]
   	set -l kube_config (basename $KUBECONFIG)
