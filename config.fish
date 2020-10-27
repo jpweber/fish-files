@@ -3,25 +3,14 @@
 . $HOME/.fishmarks/marks.fish
 
 fish_vi_key_bindings
-alias rmi "rm -i"
-alias ark "docker run --rm -u (id -u) -v ~/.kube/config:/kubeconfig -e KUBECONFIG=/kubeconfig gcr.io/heptio-images/ark:latest"
 alias oc "code ."
-# kubernets aliases
-#alias kget "kubectl get"
-#alias klogs "kubectl logs"
 
 set -x GOPATH1 $HOME/Development/go
-set -x GOPATH2 $HOME/Development/heptio/go
-#set -gx GOPATH $GOPATH1:$GOPATH2
 set -gx GOPATH $GOPATH1
 set -gx PATH $PATH $GOPATH1/bin
-set -gx PATH $PATH $GOPATH2/bin
-set -x SHELL /bin/bash
-set -x KUBECONFIG (find ~/.kube -type f -name '*kubeconfig*' | tr '\n' ':' | sed 's/:$//')
+set -x KUBECONFIG (find ~/.kube -type f -name '*.config*' | tr '\n' ':' | sed 's/:$//')
 
 source ~/.iterm2_shell_integration.fish
-# fish: Place this in ~/.config/fish/config.fish after the line
-# "source ~/.iterm2_shell_integration.fish".
 
 #function fish_prompt
 #    /usr/local/bin/powerline-go -error $status -shell bare
