@@ -1,5 +1,5 @@
 # kubernets functions
 
 function kapp
-	kubectl apply argv
+	kubectl apply $argv
 end
