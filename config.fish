@@ -8,7 +8,7 @@ alias oc "code ."
 set -x GOPATH1 $HOME/Development/go
 set -gx GOPATH $GOPATH1
 set -gx PATH $PATH $GOPATH1/bin
-set -x KUBECONFIG (find ~/.kube -type f -name '*.config*' | tr '\n' ':' | sed 's/:$//')
+#set -x KUBECONFIG (find ~/.kube -type f -name '*.config*' | tr '\n' ':' | sed 's/:$//')
 
 source ~/.iterm2_shell_integration.fish
 
